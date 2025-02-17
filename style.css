@@ -1,0 +1,60 @@
+body {
+    margin: 0;
+    background-color: black;
+    overflow: hidden; /* Убираем пустые зоны */
+    height: 100vh;
+}
+
+.container {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.image {
+    position: absolute;
+    width: 90px; /* Оптимальный размер */
+    height: auto;
+    opacity: 0; /* Сначала невидимые */
+    cursor: grab;
+    transition: transform 0.5s ease-out, opacity 1s ease-in;
+}
+
+.image:active {
+    cursor: grabbing;
+    transform: scale(1.1);
+}
+
+/* Полноразмерное изображение */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+}
+
+.fullsize-image {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    background: rgba(255, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 50%;
+}
